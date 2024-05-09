@@ -15,7 +15,7 @@ post '/' do
     puts "form_data?: #{request.form_data? }"       # false
     puts JSON.pretty_generate(request.env)
 
-    res = Net::HTTP.post(uri, request.body, headers)
+    res = Net::HTTP.post(uri, request.body.to_json, headers)
     res
 #    request.env               # raw env hash handed in by Rack
 end
