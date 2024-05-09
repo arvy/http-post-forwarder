@@ -16,6 +16,7 @@ post '/' do
     puts JSON.pretty_generate(request.env)
 
     res = Net::HTTP.post(uri, request.body.to_json, headers)
+    puts res.body  if res.is_a?(Net::HTTPSuccess)
     res
 #    request.env               # raw env hash handed in by Rack
 end
