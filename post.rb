@@ -5,9 +5,10 @@ require 'net/http'
 
 set :bind, '0.0.0.0'
 
-uri = URI('https://slack.com/api/chat.postMessage')
+
 
 post '/' do
+    uri = URI('https://slack.com/api/chat.postMessage')
     puts "body: #{ request.body.read }"              # request body sent by the client (see below)
     puts "method: #{ request.request_method }"   # "GET"
     puts "content_length: #{request.content_length }"   # length of request.body
